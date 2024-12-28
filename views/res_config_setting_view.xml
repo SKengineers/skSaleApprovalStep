@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="res_config_settings_view_form_adding_approvers_user" model="ir.ui.view">
+            <field name="name">res_config_settings_view_form_adding_approvers_user</field>
+            <field name="model">res.config.settings</field>
+            <field name="priority" eval="40"/>
+            <field name="inherit_id" ref="sale.res_config_settings_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//block[@name='catalog_setting_container']" position="before">
+                    <block title="Sale Approvers" name="sale_approvers">
+                        <setting id="sale_user_approve_ids" help="Sale Approvers for multiple Approve step">
+                            <field name="sale_user_approve_ids" widget="many2many_tags" domain="[('share', '=', False)]" options="{'no_create': True}"/>
+                        </setting>
+                    </block>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

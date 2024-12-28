@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="sale_order_reject_reason_action" model="ir.actions.act_window">
+            <field name="name">Action Reject Sale Order</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">sale.order.reject.reason</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+        <record id="sale_order_reject_reason_form_view" model="ir.ui.view">
+            <field name="name">sale_order_reject_reason_form_view</field>
+            <field name="model">sale.order.reject.reason</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="reason_reject" required="1"/>
+                        </group>
+                    </sheet>
+                    <footer>
+                        <button
+                                name="action_confirm"
+                                string="Confirm"
+                                type="object"
+                                class="btn-primary"
+                                confirm="Do you want to reject this Order ?"
+                        />
+                        <button string="Cancel" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>
